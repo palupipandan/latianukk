@@ -3,23 +3,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends CI_Controller {
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
+	function __construct(){
+		parent::__construct();
+
+		$this->load->model('m_data');
+		$this->load->helper('url');
+	}
+
 	public function index()
 	{
 		$this->load->view('admin');
+	}
+
+	public function table()
+	{
+		$data['user'] = $this->m_data->tampil_data()->result();
+		$this->load->view('Table',$data);
+	}
+
+	public function form()
+	{
+		$data['user'] = null;
+		$this->load->view('Form',$data);
+	}
+
+	public function edit_form($id)
+	{
+		$where = array('id' => $id);
+		$data['user'] = $this->m_data->tampil_data_id($where,'user')->result();
+		$this->load->view('Form', $data);
 	}
 }
