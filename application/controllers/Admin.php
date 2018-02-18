@@ -15,11 +15,12 @@ class Admin extends CI_Controller {
 		$this->load->view('admin');
 	}
 
-	public function table()
+	public function user()
 	{
-		$data['user'] = $this->m_data->tampil_data()->result();
-		$this->load->view('Table',$data);
+		$data['user'] = $this->m_data->tampil_data('user')->result();
+		$this->load->view('user',$data);
 	}
+
 
 	public function form()
 	{
@@ -33,4 +34,30 @@ class Admin extends CI_Controller {
 		$data['user'] = $this->m_data->tampil_data_id($where,'user')->result();
 		$this->load->view('Form', $data);
 	}
+
+	public function customer()
+	{
+		$data['customer'] = $this->m_data->tampil_data('customer')->result();
+		$this->load->view('customer',$data);
+	}
+
+	public function reservation()
+	{
+		$data['reservation'] = $this->m_data->tampil_data('reservation')->result();
+		$this->load->view('reservation',$data);
+	}
+
+	public function rute()
+	{
+		$data['rute'] = $this->m_data->tampil_data('rute')->result();
+		$this->load->view('rute',$data);
+	}
+
+	public function transportation()
+	{
+		$data['transportation'] = $this->m_data->tampil_data('transportation')->result();
+		$this->load->view('transportation',$data);
+	}
 }
+
+	

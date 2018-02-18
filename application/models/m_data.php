@@ -3,8 +3,8 @@
 
 class m_data extends CI_Model {
 
-	function tampil_data(){
-		return $this->db->get('user');
+	function tampil_data($Table) {
+		return $this->db->get($Table);
 	}
 
 	function tampil_data_id($where,$Table){

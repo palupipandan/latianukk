@@ -31,7 +31,7 @@ class Crud extends CI_Controller {
 			);
 
 		$this->m_data->input_data($data,'user');
-		redirect('admin/Table');
+		redirect('admin/User');
 	}
 
 
@@ -53,13 +53,13 @@ class Crud extends CI_Controller {
 			'id' => $id
 			);
 		$this->m_data->update_data($where,$data,'user');
-		redirect('admin/Table');
+		redirect('admin/User');
 
 	}
 
 	public function delete($id){
 		$where = array('id' => $id);
 		$this->m_data->hapus_data($where,'user');
-		redirect('admin/Table');
+		redirect('admin/User');
 	}
 }

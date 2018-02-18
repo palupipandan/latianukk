@@ -21,9 +21,10 @@
           <div class="box box-primary">
             <div class="box-header with-border">
               <h3 class="box-title">Forms</h3>
+            <!-- form start -->
               <?php if ($user != 0) {
-                $base = base_url();
-                echo "<form class='form-sample' action='$base/index.php/crud/update' method='post'>";
+                $base = site_url();
+                echo "<form class='form-sample' action='$base/crud/update' method='post'>";
                 foreach ($user as $u) {
                   $id = $u->id;
                   $fullname = $u->fullname;
@@ -32,8 +33,8 @@
                   $level = $u->level;
                 }
               } else {
-                $base = base_url();
-                echo "<form class='form-sample' action='$base/index.php/crud/add' method='post'>";
+                $base = site_url();
+                echo "<form class='form-sample' action='$base/crud/add' method='post'>";
                   $id = null;
                   $fullname = null;
                   $username = null;
@@ -45,8 +46,6 @@
               
             </div>
             <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form">
               <div class="box-body">
                 <div class="form-group">
                   <label for="id">Id</label>
